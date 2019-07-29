@@ -294,10 +294,10 @@ screenshot_fallback_fire_flash (GdkWindow *window,
                                                 NULL,
                                                 &rect);
 
-  flash = cheese_flash_new ();
-  cheese_flash_fire (flash, &rect);
+  //flash = cheese_flash_new ();
+  //cheese_flash_fire (flash, &rect);
 
-  g_object_unref (flash);
+  //g_object_unref (flash);
 }
 
 GdkWindow *
