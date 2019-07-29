@@ -631,6 +631,9 @@ screenshot_get_pixbuf (GdkRectangle *rectangle)
                                      filename);
     }
 
+  if (in_desktop ("Unity"))
+      screenshot = screenshot_fallback_get_pixbuf(rectangle);
+  else {
   connection = g_application_get_dbus_connection (g_application_get_default ());
   g_dbus_connection_call_sync (connection,
                                "org.gnome.Shell.Screenshot",
@@ -660,6 +663,7 @@ screenshot_get_pixbuf (GdkRectangle *rectangle)
 
       screenshot = screenshot_fallback_get_pixbuf (rectangle);
     }
+  }
 
   g_free (path);
   g_free (tmpname);

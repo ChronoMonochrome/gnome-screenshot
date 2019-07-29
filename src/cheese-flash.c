@@ -71,7 +71,6 @@ cheese_flash_init (CheeseFlash *self)
   cairo_region_t *input_region;
   GtkWindow *window;
   GdkScreen *screen;
-  GdkVisual *visual;
 
   priv->flash_timeout_tag = 0;
   priv->fade_timeout_tag  = 0;
@@ -88,14 +87,6 @@ cheese_flash_init (CheeseFlash *self)
   /* Don't take focus */
   gtk_window_set_accept_focus (window, FALSE);
   gtk_window_set_focus_on_map (window, FALSE);
-
-  /* no shadow */
-  screen = gtk_widget_get_screen (GTK_WIDGET (window));
-  visual = gdk_screen_get_rgba_visual (screen);
-  if (visual == NULL)
-    visual = gdk_screen_get_system_visual (screen);
-
-  gtk_widget_set_visual (GTK_WIDGET (window), visual);
 
   /* Don't consume input */
   gtk_widget_realize (GTK_WIDGET (window));

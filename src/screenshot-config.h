@@ -62,6 +62,7 @@ gboolean	screenshot_config_parse_command_line	(gboolean clipboard_arg,
 							 guint delay_arg,
 							 gboolean interactive_arg,
 							 const gchar *file_arg);
+gboolean in_desktop (const gchar *name);
 
 G_END_DECLS
 
